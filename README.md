@@ -33,9 +33,9 @@ Container - Shares the operating system plateform (can choose not to) and allows
 ## Docker Architecture
 
   Container architecture
-   * Client-server application
-   * Docker client + Docker daemon         (Same System)
-   * Docker client > Remote Docker daemon  (Remote System)
+   * Is a client-server application
+   * Run as a [Same System] Docker client + Docker daemon
+   * Or a [Remote System] Docker client > Remote Docker daemon
     
     Docker client & daemon communications
      * Sockets
