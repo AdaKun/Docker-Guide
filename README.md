@@ -1,18 +1,7 @@
 # Linux-Acadeny_Docker-Guide
 My Notes for Docker, through Linux Academy
 
-* [Introduction to Docker](#Introduction to Docker)
-	* [What is Docker?](#What is Docker?)
-	* [When to use docker?](#When to use docker?)
-* [Containers Vs. Virtual Machines](#)
-	*[Whats the difference?](#)
-* [Docker Architecture](#)
-	* [Container architecture](#)
-	* [Docker client & daemon communications](#)
-	* [Docker Components](#)
-	* [Docker is not a new idea](#)
-* [The Docker Hub](#)
-
+## Table of Contents
 - [Introduction to Docker](#introduction-to-docker)
     + [What is Docker?](#what-is-docker-)
     + [When to use docker?](#when-to-use-docker-)
