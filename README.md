@@ -3,10 +3,10 @@ My Notes for Docker, through Linux Academy
 
 ## Table of Contents
 - [Introduction to Docker](#introduction-to-docker)
-    + [What is Docker?](#what-is-docker?)
-    + [When to use docker?](#when-to-use-docker?)
+    + [What is Docker](#what-is-docker)
+    + [When to use docker](#when-to-use-docker)
 - [Containers Vs. Virtual Machines](#containers-vs-virtual-machines)
-    + [Whats the difference?](#whats-the-difference-)
+    + [Whats the difference](#whats-the-difference)
 - [Docker Architecture](#docker-architecture)
     + [Container architecture](#container-architecture)
     + [Docker client & daemon communications](#docker-client---daemon-communications)
@@ -16,10 +16,10 @@ My Notes for Docker, through Linux Academy
 
 ## Introduction to Docker
 
-#### What is Docker?
+#### What is Docker
 Tool or set of tools that packages applications and it dependencies on a virtual container to any Linux systems or distrobutions
 
-#### When to use docker?
+#### When to use docker
  * Configure Simplification
  * Developer Productivity
  * Server Management 
@@ -34,7 +34,7 @@ VM's - Allows operating systems within another (shares physical machine hardware
  * communicates through a Hypervisor  
 Container - An isolated set of packages, libraries, applications
 
-#### Whats the difference?
+#### Whats the difference
 VM - Creates a full operating system stack, uses more system resources regardless of applications used
 Container - Shares the operating system plateform (can choose not to) and allows more granualar management of resources based on uses.
 
