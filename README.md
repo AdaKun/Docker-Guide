@@ -1,7 +1,6 @@
 # Linux-Acadeny_Docker-Guide
 My Notes for Docker, through Linux Academy
 
-**Table of Contents**  *generated with [DocToc](http://doctoc.herokuapp.com/)*
 * [Introduction to Docker](#Introduction to Docker)
 	* [What is Docker?](#What is Docker?)
 	* [When to use docker?](#When to use docker?)
