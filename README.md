@@ -3,22 +3,21 @@ My Notes for Docker, through Linux Academy
 
 ### Table of Contents
 
-* [Introduction](#Introduction to docker)
-* [Prerequisites](#prerequisites)
-* [Installation](#installation)
-* [Containers](#containers)
-* [Images](#images)
-* [Networks](#networks)
-* [Registry and Repository](#registry--repository)
-* [Dockerfile](#dockerfile)
-* [Layers](#layers)
-* [Links](#links)
-* [Volumes](#volumes)
-* [Exposing Ports](#exposing-ports)
-* [Best Practices](#best-practices)
-* [Security](#security)
-* [Tips](#tips)
-* [Contributing](#contributing)
+**Table of Contents**  *generated with [DocToc](http://doctoc.herokuapp.com/)*
+
+- [Linux-Acadeny_Docker-Guide](#)
+		- [Table of Contents](#)
+	- [Introduction to Docker](#)
+			- [What is Docker?](#)
+			- [When to use docker?](#)
+	- [Containers Vs. Virtual Machines](#)
+			- [Whats the difference?](#)
+	- [Docker Architecture](#)
+			- [Container architecture](#)
+			- [Docker client & daemon communications](#)
+			- [Docker Components](#)
+			- [Docker is not a new idea](#)
+	- [The Docker Hub](#)
 
 ## Introduction to Docker
 
