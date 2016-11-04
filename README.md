@@ -3,8 +3,8 @@ My Notes for Docker, through Linux Academy
 
 ## Table of Contents
 - [Introduction to Docker](#introduction-to-docker)
-    + [What is Docker?](#what-is-docker-)
-    + [When to use docker?](#when-to-use-docker-)
+    + [What is Docker?](#what-is-docker?)
+    + [When to use docker?](#when-to-use-docker?)
 - [Containers Vs. Virtual Machines](#containers-vs-virtual-machines)
     + [Whats the difference?](#whats-the-difference-)
 - [Docker Architecture](#docker-architecture)
