@@ -1,24 +1,6 @@
 # Linux-Acadeny_Docker-Guide
 My Notes for Docker, through Linux Academy
 
-### Table of Contents
-
-**Table of Contents**  *generated with [DocToc](http://doctoc.herokuapp.com/)*
-
-- [Linux-Acadeny_Docker-Guide](#)
-		- [Table of Contents](#)
-	- [Introduction to Docker](#)
-			- [What is Docker?](#)
-			- [When to use docker?](#)
-	- [Containers Vs. Virtual Machines](#)
-			- [Whats the difference?](#)
-	- [Docker Architecture](#)
-			- [Container architecture](#)
-			- [Docker client & daemon communications](#)
-			- [Docker Components](#)
-			- [Docker is not a new idea](#)
-	- [The Docker Hub](#)
-
 ## Introduction to Docker
 
 #### What is Docker?
