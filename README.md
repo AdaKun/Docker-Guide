@@ -13,6 +13,18 @@ My Notes for Docker, through Linux Academy
 	* [Docker is not a new idea](#)
 * [The Docker Hub](#)
 
+- [Introduction to Docker](#introduction-to-docker)
+    + [What is Docker?](#what-is-docker-)
+    + [When to use docker?](#when-to-use-docker-)
+- [Containers Vs. Virtual Machines](#containers-vs-virtual-machines)
+    + [Whats the difference?](#whats-the-difference-)
+- [Docker Architecture](#docker-architecture)
+    + [Container architecture](#container-architecture)
+    + [Docker client & daemon communications](#docker-client---daemon-communications)
+    + [Docker Components](#docker-components)
+    + [Docker is not a new idea](#docker-is-not-a-new-idea)
+- [The Docker Hub](#the-docker-hub)
+
 ## Introduction to Docker
 
 #### What is Docker?
