@@ -3,7 +3,7 @@ My Notes for Docker, through Linux Academy
 
 ### Table of Contents
 
-* [Intoduction](#Introduction-to-docker)
+* [Intoduction](#Introduction to docker)
 * [Prerequisites](#prerequisites)
 * [Installation](#installation)
 * [Containers](#containers)
