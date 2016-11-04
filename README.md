@@ -32,7 +32,7 @@ Container - Shares the operating system plateform (can choose not to) and allows
 
 ## Docker Architecture
 
-  ### Container archit
+  ### Container architecture
    * Is a client-server application
    * Run as a [Same System] Docker client + Docker daemon
    * Or a [Remote System] Docker client > Remote Docker daemon
@@ -57,4 +57,7 @@ Container - Shares the operating system plateform (can choose not to) and allows
      * Sun (Oracle) Solaris - Zones
      * Google - lmcfy (Let Me Contain That For You)
      * OpenVZ
+     
+## The Docker Hub
+
     
