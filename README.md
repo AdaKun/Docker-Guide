@@ -32,7 +32,7 @@ Container - Shares the operating system plateform (can choose not to) and allows
 
 ## Docker Architecture
 
-  ### Container architecture
+  ### Container archit
    * Is a client-server application
    * Run as a [Same System] Docker client + Docker daemon
    * Or a [Remote System] Docker client > Remote Docker daemon
