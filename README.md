@@ -4,11 +4,9 @@ My Notes for Docker, through Linux Academy
 ## Introduction to Docker
 
 #### What is Docker?
-
 Tool or set of tools that packages applications and it dependencies on a virtual container to any Linux systems or distrobutions
 
 #### When to use docker?
-
  * Configure Simplification
  * Developer Productivity
  * Server Management 
@@ -17,16 +15,13 @@ Tool or set of tools that packages applications and it dependencies on a virtual
  * [Primary Usage] Build Management Automation (e.g. Ansible, Jenkins)
 
 ### Containers Vs. Virtual Machines
-
 VM's - Allows operating systems within another (shares physical machine hardware)
  * VMWare, Citrix, VirtualBox, OpenStack, KVM
  * Usually X86 system 
- * communicates through a Hypervisor
-  
+ * communicates through a Hypervisor  
 Container - An isolated set of packages, libraries, applications
 
 #### Whats the difference?
-
 VM - Creates a full operating system stack, uses more system resources regardless of applications used
 Container - Shares the operating system plateform (can choose not to) and allows more granualar management of resources based on uses.
 
@@ -51,13 +46,23 @@ Container - Shares the operating system plateform (can choose not to) and allows
    * Docker.io Registry
     
 #### Docker is not a new idea
-    Docker has captured the right buzz
-    Other Applications Include:
-     * FreeBSD - Jails
-     * Sun (Oracle) Solaris - Zones
-     * Google - lmcfy (Let Me Contain That For You)
-     * OpenVZ
+Docker has captured the right buzz
+Other Applications Include:
+   * FreeBSD - Jails
+   * Sun (Oracle) Solaris - Zones
+   * Google - lmcfy (Let Me Contain That For You)
+   * OpenVZ
      
 ### The Docker Hub
-
+  * Public registry/repository
+  * Maintained by Docker Inc.
+  * Conatains images to build containers
+    * pull images from cli to build containers
+  * provides image information
+    * Dockerfile
+    * Variables
+    * Configurations
+  * Free to join
+    * 1 single private repository
+    * Unlimited public repositories
     
