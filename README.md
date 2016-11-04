@@ -1,6 +1,25 @@
 # Linux-Acadeny_Docker-Guide
 My Notes for Docker, through Linux Academy
 
+### Table of Contents
+
+* [Intoduction](#Introduction-to-docker)
+* [Prerequisites](#prerequisites)
+* [Installation](#installation)
+* [Containers](#containers)
+* [Images](#images)
+* [Networks](#networks)
+* [Registry and Repository](#registry--repository)
+* [Dockerfile](#dockerfile)
+* [Layers](#layers)
+* [Links](#links)
+* [Volumes](#volumes)
+* [Exposing Ports](#exposing-ports)
+* [Best Practices](#best-practices)
+* [Security](#security)
+* [Tips](#tips)
+* [Contributing](#contributing)
+
 ## Introduction to Docker
 
 #### What is Docker?
@@ -14,7 +33,7 @@ Tool or set of tools that packages applications and it dependencies on a virtual
  * Rapid Deployment
  * [Primary Usage] Build Management Automation (e.g. Ansible, Jenkins)
 
-### Containers Vs. Virtual Machines
+## Containers Vs. Virtual Machines
 VM's - Allows operating systems within another (shares physical machine hardware)
  * VMWare, Citrix, VirtualBox, OpenStack, KVM
  * Usually X86 system 
@@ -25,7 +44,7 @@ Container - An isolated set of packages, libraries, applications
 VM - Creates a full operating system stack, uses more system resources regardless of applications used
 Container - Shares the operating system plateform (can choose not to) and allows more granualar management of resources based on uses.
 
-### Docker Architecture
+## Docker Architecture
 
 #### Container architecture
    * Is a client-server application
@@ -53,7 +72,7 @@ Other Applications Include:
    * Google - lmcfy (Let Me Contain That For You)
    * OpenVZ
      
-### The Docker Hub
+## The Docker Hub
   * Public registry/repository
   * Maintained by Docker Inc.
   * Conatains images to build containers
