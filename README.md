@@ -85,7 +85,7 @@ What we are using
         docker in default repo tends to be behind several builds
 We are going to pull the latest docker from thier official repo
     create a repository for docker
-        `cd /etc/yum.repos.d/
+        `cd /etc/yum.repos.d/`
         ll
         sudo vim docker.repo
             [dockerrepo]
@@ -93,7 +93,7 @@ We are going to pull the latest docker from thier official repo
             baseurl=https://yum.dockerproject.org/repo/main/centos/$releaserver/
             enabled=1
             gpgcheck=1
-            gpg=https://yum.dockerproject.org/gpg`
+            gpg=https://yum.dockerproject.org/gpg
 Update the cache and latest updates
         sudo yum -y update
 Install docker from the docker repo
