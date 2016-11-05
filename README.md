@@ -67,15 +67,17 @@ Other Applications Include:
    * OpenVZ
      
 ## The Docker Hub
-  * Public registry/repository
-  * Maintained by Docker Inc.
-  * Conatains images to build containers
-    * pull images from cli to build containers
-  * provides image information
-    * Dockerfile
-    * Variables
-    * Configurations
-  * Free to join
-    * 1 single private repository
-    * Unlimited public repositories
+    * Public registry/repository
+    * Maintained by Docker Inc.
+    * Conatains images to build containers
+        * pull images from cli to build containers
+    * provides image information
+        * Dockerfile
+        * Variables
+        * Configurations
+    * Free to join
+        * 1 single private repository
+        * Unlimited public repositories
     
+## Docker Installation
+
