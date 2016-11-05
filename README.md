@@ -67,17 +67,55 @@ Other Applications Include:
    * OpenVZ
      
 ## The Docker Hub
-    * Public registry/repository
-    * Maintained by Docker Inc.
-    * Conatains images to build containers
-        * pull images from cli to build containers
-    * provides image information
-        * Dockerfile
-        * Variables
-        * Configurations
-    * Free to join
-        * 1 single private repository
-        * Unlimited public repositories
+   * Public registry/repository
+   * Maintained by Docker Inc.
+   * Conatains images to build containers
+       * pull images from cli to build containers
+   * provides image information
+       * Dockerfile
+       * Variables
+       * Configurations
+   * Free to join
+       * 1 single private repository
+       * Unlimited public repositories
     
 ## Docker Installation
-
+What we are using
+    CentOS 7
+        docker in default repo tends to be behind several builds
+We are going to pull the latest docker from thier official repo
+    create a repository for docker
+        `cd /etc/yum.repos.d/
+        ll
+        sudo vim docker.repo
+            [dockerrepo]
+            name=Docker Repository
+            baseurl=https://yum.dockerproject.org/repo/main/centos/$releaserver/
+            enabled=1
+            gpgcheck=1
+            gpg=https://yum.dockerproject.org/gpg`
+Update the cache and latest updates
+        sudo yum -y update
+Install docker from the docker repo
+        sudo yum -y install docker-engine
+Enable & Start Docker
+        sudo systemctl enable docker
+        sudo systemctl start docker
+Verfiy Docker
+        sudo systemctl status docker
+Verify Docker images
+        docker images (you should get "Cannot connect to the Docker deamon.")
+            By default in /var/run docker installs docker.sock under the "docker" group
+            To see docker.sock
+                cd /var/run
+                ls -al dock*
+                    Only Root or docker group can access docker
+        Add our user to the docker group
+            sudo usermod "user" -G docker
+        Logout & Login
+Reinsure docker is working properly
+        docker run hello-world
+Verify latest docker version
+        docker --version
+        
+## Creating Our First Image
