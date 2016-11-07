@@ -81,62 +81,79 @@ Other Applications Include:
     
 ## Docker Installation
 What we are using
-
-        CentOS 7    
+```
+CentOS 7
+```
 The CentOS default repo for Docker tends to be behind several builds so we are going to pull the latest docker from thier official repo.
 
 **Lets create a repository for docker!**
 
 Move to repo directory
-
-        cd /etc/yum.repos.d/
+```
+cd /etc/yum.repos.d/
+```
 View repo's
-
-        ll
+```
+ll
+```
 Create repo file
-
-        sudo vim docker.repo
+```
+sudo vim docker.repo
+```
 Type the following in the repo file
-     
-     
-        [dockerrepo]
-        name=Docker Repository
-        baseurl=https://yum.dockerproject.org/repo/main/centos/$releaserver/
-        enabled=1
-        gpgcheck=1
-        gpg=https://yum.dockerproject.org/gpg
-        
+```
+[dockerrepo]
+name=Docker Repository
+baseurl=https://yum.dockerproject.org/repo/main/centos/$releaserver/
+enabled=1
+gpgcheck=1
+gpg=https://yum.dockerproject.org/gpg
+```        
 Update the cache and latest updates
-
-        sudo yum -y update
+```
+sudo yum -y update
+```        
 Install docker from the docker repo
-
-        sudo yum -y install docker-engine
+```
+sudo yum -y install docker-engine
+```
 Enable & Start Docker
-
-        sudo systemctl enable docker
-        sudo systemctl start docker
+```
+sudo systemctl enable docker
+sudo systemctl start docker
+```
 Verfiy Docker
-
-        sudo systemctl status docker
-Verify Docker images
-
-        docker images (you should get "Cannot connect to the Docker deamon.")
-            By default in /var/run docker installs docker.sock under the "docker" group
-            To see docker.sock
-                cd /var/run
-                ls -al dock*
-                    Only Root or docker group can access docker
+```
+sudo systemctl status docker
+```
+Verify Docker images (you should get "Cannot connect to the Docker deamon.")
+```
+docker images
+```
+Why does this happen?
+By default docker installs docker.sock under the "docker" group
+To see what we are talking about:
+```
+cd /var/run
+ls -al dock*
+```
+_Only Root or docker group can access Docker because of docker.sock permissions_
+**The Fix**
 Add our user to the docker group
-
-            sudo usermod "user" -G docker
+```
+sudo usermod "user" -G docker
+```
 Logout & Login to inact user modification
-
+```
+exit
+su "user"
+```
 Reinsure docker is working properly
-
-        docker run hello-world
+```
+docker run hello-world
+```
 Verify latest docker version
-
-        docker --version
-        
+```
+docker --version
+```
 ## Creating Our First Image
