@@ -14,6 +14,7 @@ My Notes for Docker, through Linux Academy
     + [Docker is not a new idea](#docker-is-not-a-new-idea)
 - [The Docker Hub](#the-docker-hub)
 - [Docker Installation](#docker-installation)
+- [First Docker Image](#creating-our-first-image)
 
 ## Introduction to Docker
 
