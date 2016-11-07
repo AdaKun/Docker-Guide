@@ -33,7 +33,7 @@ VM's - Allows the user to build operating systems within their current system (s
  - Usually X86 system 
  - communicates through a Hypervisor  
 
-Container - An isolated set of packages, libraries, applications. 
+Containers - An isolated set of packages, libraries, applications. 
 
 #### Whats the difference
 VM - Creates a full operating system stack, uses more system resources regardless of applications used
