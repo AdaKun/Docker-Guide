@@ -32,6 +32,7 @@ VM's - Allows the user to build operating systems within their current system (s
  - VMWare, Citrix, VirtualBox, OpenStack, KVM
  - Usually X86 system 
  - communicates through a Hypervisor  
+
 Container - An isolated set of packages, libraries, applications. 
 
 #### Whats the difference
