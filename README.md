@@ -179,7 +179,7 @@ docker --version
 
 Goal: to pull an image and represent an instance or container from it
 
-### Quick overview of internal architecture
+### Quick overview of Dockers internal architecture
 
 Two components to a docker infastructure:
 
@@ -232,6 +232,30 @@ You can view this image running
 
 `docker images`
 
+### Lets pull our first image
 
+Through the *docker hub* we will pull the latest ubuntu image from their official repository using the Docker pull command
 
+_remember, As non-root user under the docker group_
 
+`docker pull ubuntu:xenial` 
+
+_We could use `docker pull ubuntu` but we will be more specific with the "xenial" image even when new builds are released_
+
+Check docker images
+
+`docker images`
+
+Lets run the image in a container
+
+`docker run -i -t ubuntu:xenial /bin/bash`
+
+[docker command]
+..*docker run
+[options]
+-i = run in interactive mode
+-t = attach to terminal/tty
+[docker image]
+ubuntu:xenial
+[interactive command]
+/bin/bash
