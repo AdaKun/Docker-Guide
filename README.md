@@ -272,19 +272,19 @@ if you exit the container
 
 You will notice the container is no longer running.
 
-_exiting the contatiner also closes the container proccess_
+<sub>_exiting the contatiner also closes the container proccess_</sub>
 
 You can find the last used containers and its unique names running a `docker ps -a`
 
 You can also restart the container with `docker restart "unique-name"`
 
-_but you'll also notice you will not have a /bin/bash prompt_
+<sub>_but you'll also notice you will not have a /bin/bash prompt_</sub>
 
 You can check if the image is running using a `docker ps`
 
 You can return to the bash promp of the container by running `docker attach "unique name"`
 
-_the disadvantage of this is exiting the container will also exit the container proccess again_
+<sub>_the disadvantage of this is exiting the container will also exit the container proccess again_</sub>
 
 ### Working With Multiple Images
 
