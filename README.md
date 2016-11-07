@@ -146,7 +146,9 @@ you should get
 ```
 
 Why does this happen?
+
 By default docker installs docker.sock under the "docker" group
+
 To see what we are talking about:
 ```
 cd /var/run
