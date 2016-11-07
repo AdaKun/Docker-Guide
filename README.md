@@ -132,8 +132,9 @@ Verfiy Docker
 sudo systemctl status docker
 ```
 Verify Docker images 
-```ruby
-- (you should get "Cannot connect to the Docker deamon.")
+**The Problem**
+```css
+// #ff0000 (you should get "Cannot connect to the Docker deamon.")
 ```
 ```
 docker images
