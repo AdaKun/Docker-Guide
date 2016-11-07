@@ -164,3 +164,50 @@ Verify latest docker version
 docker --version
 ```
 ## Creating Our First Image
+
+Goal: to pull an image and represent an instance or container from it
+
+### Quick overview of internal architecture
+
+Two components to a docker infastructure:
+
+1. an image (of anything)
+2. containers (instance of an image run as a container)
+
+Be sure version of Docker is at least 1.1
+`docker version`
+
+Find more information in Docker
+`docker info`
+
+How much space can I use using Docker images?
+Check disk space
+`df -h`
+_(If /var/lib/docker is not mounted then the space available in your root (/) directory is what you are limited to.)_
+
+#### Where are all Docker images and containers storage located
+`/var/lib/docker`
+_must be root to access this directory_
+
+**Container location**
+`/var/lib/docker/container`
+
+View current containers
+`docker ps`
+
+View past containers
+`docker ps -a`
+
+Two ways to refer to a container:
+1. "CONTAINER ID" (12 characters)
+2. a Unique image name (e.g. cocky_elion)
+
+**Image location**
+`/var/lib/docker/image/devicemapper/imagedb/content/sha256/"image"`
+
+You can view this image running
+`docker images`
+
+
+
+
