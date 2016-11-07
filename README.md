@@ -131,7 +131,10 @@ Verfiy Docker
 ```
 sudo systemctl status docker
 ```
-Verify Docker images (you should get "Cannot connect to the Docker deamon.")
+Verify Docker images 
+```diff
+- (you should get "Cannot connect to the Docker deamon.")
+```
 ```
 docker images
 ```
@@ -171,13 +174,15 @@ Goal: to pull an image and represent an instance or container from it
 
 Two components to a docker infastructure:
 
-1. an image (of anything)
-2. containers (instance of an image run as a container)
+1. An image (of anything)
+2. Containers (instance of an image run as a container)
 
 Be sure version of Docker is at least 1.1
+
 `docker version`
 
 Find more information in Docker
+
 `docker info`
 
 How much space can I use using Docker images?
@@ -199,6 +204,7 @@ View past containers
 `docker ps -a`
 
 Two ways to refer to a container:
+
 1. "CONTAINER ID" (12 characters)
 2. a Unique image name (e.g. cocky_elion)
 
