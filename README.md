@@ -252,10 +252,13 @@ Lets run the image in a container
 
 [docker command]
    docker run
+   
 [options]
    -i = run in interactive mode
    -t = attach to terminal/tty
+   
 [docker image]
    ubuntu:xenial
+   
 [interactive command]
    /bin/bash
