@@ -13,6 +13,7 @@ My Notes for Docker, through Linux Academy
     + [Docker Components](#docker-components)
     + [Docker is not a new idea](#docker-is-not-a-new-idea)
 - [The Docker Hub](#the-docker-hub)
+- [Docker Installation](#Docker-Installation)
 
 ## Introduction to Docker
 
