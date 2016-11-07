@@ -28,15 +28,15 @@ Tool or set of tools that packages applications and it dependencies on a virtual
  - [Primary Usage] Build Management Automation (e.g. Ansible, Jenkins)
 
 ## Containers Vs. Virtual Machines
-VM's - Allows operating systems within another (shares physical machine hardware)
+VM's - Allows the user to build operating systems within their current system (shares physical machine resources & hardware)
  - VMWare, Citrix, VirtualBox, OpenStack, KVM
  - Usually X86 system 
  - communicates through a Hypervisor  
-Container - An isolated set of packages, libraries, applications
+Container - An isolated set of packages, libraries, applications. 
 
 #### Whats the difference
 VM - Creates a full operating system stack, uses more system resources regardless of applications used
-Container - Shares the operating system plateform (can choose not to) and allows more granualar management of resources based on uses.
+Container - Shares the operating system plateform (can choose not to) and allows more granualar management of resources based on uses.   _(e.g. user can contain a working web app like nginx to be used on top of a variety of Linux distrobution / systems)_
 
 ## Docker Architecture
 
