@@ -248,23 +248,13 @@ Check docker images
 
 Lets run the image in a container
 
-|`docker run -i -t ubuntu:xenial /bin/bash`          |
-| ------------------- |:----------------------------:|
-| docker command      | docker run                   |
-| options             | -i = run in interactive mode |
-|                     | -t = attach to terminal/tty  |
-| docker image        | ubuntu:xenial                |
-| interactive command | /bin/bash                    |
+`docker run -i -t ubuntu:xenial /bin/bash`
 
-[docker command]
-   docker run
-   
-[options]
-   -i = run in interactive mode
-   -t = attach to terminal/tty
-   
-[docker image]
-   ubuntu:xenial
-   
-[interactive command]
-   /bin/bash
+| Command             | Discription                      |
+| ------------------- |:-------------------------------: |
+| docker run          | Run a command in a new container |
+| -i                  | run in interactive mode          |
+| -t                  | attach to terminal/tty           |
+| ubuntu:xenial       | docker image                     |
+| /bin/bash           | interactive command              |
+
