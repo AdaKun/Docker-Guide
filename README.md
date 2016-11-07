@@ -258,3 +258,33 @@ Lets run the image in a container
 | ubuntu:xenial       | docker image                     |
 | /bin/bash           | interactive command              |
 
+This will start you in a /bin/bash prompt in the container you just created
+
+you can check the proccesses the container is running:
+
+`ps aux`
+
+you will see the ps and bin/bash proccess
+
+if you exit the container
+
+`exit`
+
+You will notice the container is no longer running.
+
+_exiting the contatiner also closes the container proccess_
+
+You can find the last used containers and its unique names running a `docker ps -a`
+
+You can also restart the container with `docker restart "unique-name"`
+
+_but you'll also notice you will not have a /bin/bash prompt_
+
+You can check if the image is running using a `docker ps`
+
+You can return to the bash promp of the container by running `docker attach "unique name"`
+
+_the disadvantage of this is exiting the container will also exit the container proccess again_
+
+### Working With Multiple Images
+
