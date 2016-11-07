@@ -20,18 +20,18 @@ My Notes for Docker, through Linux Academy
 Tool or set of tools that packages applications and it dependencies on a virtual container to any Linux systems or distrobutions
 
 #### When to use docker
- * Configure Simplification
- * Developer Productivity
- * Server Management 
- * Application Isolation
- * Rapid Deployment
- * [Primary Usage] Build Management Automation (e.g. Ansible, Jenkins)
+ - Configure Simplification
+ - Developer Productivity
+ - Server Management 
+ - Application Isolation
+ - Rapid Deployment
+ - [Primary Usage] Build Management Automation (e.g. Ansible, Jenkins)
 
 ## Containers Vs. Virtual Machines
 VM's - Allows operating systems within another (shares physical machine hardware)
- * VMWare, Citrix, VirtualBox, OpenStack, KVM
- * Usually X86 system 
- * communicates through a Hypervisor  
+ - VMWare, Citrix, VirtualBox, OpenStack, KVM
+ - Usually X86 system 
+ - communicates through a Hypervisor  
 Container - An isolated set of packages, libraries, applications
 
 #### Whats the difference
@@ -41,81 +41,102 @@ Container - Shares the operating system plateform (can choose not to) and allows
 ## Docker Architecture
 
 #### Container architecture
-   * Is a client-server application
-   * Run as a [Same System] Docker client + Docker daemon
-   * Or a [Remote System] Docker client > Remote Docker daemon
-   * Runs on top of a single Linux instance
-   * Docker engine = incapsulating proccess
-   * Removes a whole layer from the VM hypervisor process
-      * saves resources and space
+   - Is a client-server application
+   - Run as a [Same System] Docker client + Docker daemon
+   - Or a [Remote System] Docker client > Remote Docker daemon
+   - Runs on top of a single Linux instance
+   - Docker engine = incapsulating proccess
+   - Removes a whole layer from the VM hypervisor process
+      + saves resources and space
     
 #### Docker client & daemon communications
-   * Sockets
-   * RESTful API (Representational State Tranfer - Stateless transfer over HTTP of a webpage containing an XML file)
+   - Sockets
+   - RESTful API (Representational State Tranfer - Stateless transfer over HTTP of a webpage containing an XML file)
     
 #### Docker Components
-   * Daemon
-   * Client
-   * Docker.io Registry
+   - Daemon
+   - Client
+   - Docker.io Registry
     
 #### Docker is not a new idea
 Docker has captured the right buzz
 Other Applications Include:
-   * FreeBSD - Jails
-   * Sun (Oracle) Solaris - Zones
-   * Google - lmcfy (Let Me Contain That For You)
-   * OpenVZ
+   - FreeBSD - Jails
+   - Sun (Oracle) Solaris - Zones
+   - Google - lmcfy (Let Me Contain That For You)
+   - OpenVZ
      
 ## The Docker Hub
-   * Public registry/repository
-   * Maintained by Docker Inc.
-   * Conatains images to build containers
-       * pull images from cli to build containers
-   * provides image information
-       * Dockerfile
-       * Variables
-       * Configurations
-   * Free to join
-       * 1 single private repository
-       * Unlimited public repositories
+   - Public registry/repository
+   - Maintained by Docker Inc.
+   - Conatains images to build containers
+       + pull images from cli to build containers
+   - provides image information
+       + Dockerfile
+       + Variables
+       + Configurations
+   - Free to join
+       + 1 single private repository
+       + Unlimited public repositories
     
 ## Docker Installation
 What we are using
-    CentOS 7
-        docker in default repo tends to be behind several builds
-We are going to pull the latest docker from thier official repo
-    create a repository for docker
-        `cd /etc/yum.repos.d/`
+
+        CentOS 7    
+The CentOS default repo for Docker tends to be behind several builds so we are going to pull the latest docker from thier official repo.
+
+**Lets create a repository for docker!**
+
+Move to repo directory
+
+        cd /etc/yum.repos.d/
+View repo's
+
         ll
+Create repo file
+
         sudo vim docker.repo
-            [dockerrepo]
-            name=Docker Repository
-            baseurl=https://yum.dockerproject.org/repo/main/centos/$releaserver/
-            enabled=1
-            gpgcheck=1
-            gpg=https://yum.dockerproject.org/gpg
+Type the following in the repo file
+     
+     
+        [dockerrepo]
+        name=Docker Repository
+        baseurl=https://yum.dockerproject.org/repo/main/centos/$releaserver/
+        enabled=1
+        gpgcheck=1
+        gpg=https://yum.dockerproject.org/gpg
+        
 Update the cache and latest updates
+
         sudo yum -y update
 Install docker from the docker repo
+
         sudo yum -y install docker-engine
 Enable & Start Docker
+
         sudo systemctl enable docker
         sudo systemctl start docker
 Verfiy Docker
+
         sudo systemctl status docker
 Verify Docker images
+
         docker images (you should get "Cannot connect to the Docker deamon.")
             By default in /var/run docker installs docker.sock under the "docker" group
             To see docker.sock
                 cd /var/run
                 ls -al dock*
                     Only Root or docker group can access docker
-        Add our user to the docker group
+Add our user to the docker group
+
             sudo usermod "user" -G docker
-        Logout & Login
+Logout & Login to inact user modification
+
 Reinsure docker is working properly
+
         docker run hello-world
 Verify latest docker version
+
         docker --version
         
 ## Creating Our First Image
