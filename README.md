@@ -86,7 +86,7 @@ CentOS 7
 ```
 The CentOS default repo for Docker tends to be behind several builds so we are going to pull the latest docker from thier official repo.
 
-**Lets create a repository for docker!**
+**Lets create a repository for Docker!**
 
 Move to repo directory
 ```
