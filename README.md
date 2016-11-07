@@ -133,8 +133,10 @@ sudo systemctl status docker
 ```
 Verify Docker images 
 **The Problem**
-```css
-// #ff0000 (you should get "Cannot connect to the Docker deamon.")
+you should get
+
+```diff
+- ("Cannot connect to the Docker deamon.")
 ```
 ```
 docker images
@@ -207,7 +209,7 @@ View past containers
 Two ways to refer to a container:
 
 1. "CONTAINER ID" (12 characters)
-2. a Unique image name (e.g. cocky_elion)
+2. A Unique image name (e.g. cocky_elion)
 
 **Image location**
 `/var/lib/docker/image/devicemapper/imagedb/content/sha256/"image"`
