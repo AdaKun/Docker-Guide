@@ -1,4 +1,4 @@
-# Linux-Acadeny_Docker-Guide
+# Linux Acadeny Docker Personal Guide
 My Notes for Docker, through Linux Academy
 
 ## Table of Contents
