@@ -41,7 +41,7 @@ Containers - An isolated set of packages, libraries, applications.
 VM - Creates a full operating system stack, uses more system resources regardless of applications used
 
 Container - Shares the operating system plateform (can choose not to) and allows more granualar management of resources based on uses.   
-_(e.g. user can contain a working web app like nginx to be used on top of a variety of Linux distrobution / systems)_
+<sub>_(e.g. user can contain a working web app like nginx to be used on top of a variety of Linux distrobution / systems)_</sub>
 
 ## Docker Architecture
 
@@ -154,7 +154,7 @@ To see what we are talking about:
 cd /var/run
 ls -al dock*
 ```
-_Only Root or docker group can access Docker because of docker.sock permissions_
+<sub>_Only Root or docker group can access Docker because of docker.sock permissions_</sub>
 
 **The Fix**
 
@@ -199,13 +199,13 @@ Check disk space
 
 `df -h`
 
-_(If /var/lib/docker is not mounted then the space available in your root (/) directory is what you are limited to.)_
+<sub>_(If /var/lib/docker is not mounted then the space available in your root (/) directory is what you are limited to.)_</sub>
 
 #### Where are all Docker images and containers storage located
 
 `/var/lib/docker`
 
-_must be root to access this directory_
+<sub>_must be root to access this directory_</sub>
 
 **Container location**
 
@@ -236,11 +236,11 @@ You can view this image running
 
 Through the *docker hub* we will pull the latest ubuntu image from their official repository using the Docker pull command
 
-_remember, As non-root user under the docker group_
+<sub>_remember, As non-root user under the docker group_</sub>
 
 `docker pull ubuntu:xenial` 
 
-_We could use `docker pull ubuntu` but we will be more specific with the "xenial" image even when new builds are released_
+<sub>_We could use `docker pull ubuntu` but we will be more specific with the "xenial" image even when new builds are released_</sub>
 
 Check docker images
 
