@@ -36,7 +36,9 @@ Container - An isolated set of packages, libraries, applications.
 
 #### Whats the difference
 VM - Creates a full operating system stack, uses more system resources regardless of applications used
-Container - Shares the operating system plateform (can choose not to) and allows more granualar management of resources based on uses.   _(e.g. user can contain a working web app like nginx to be used on top of a variety of Linux distrobution / systems)_
+
+Container - Shares the operating system plateform (can choose not to) and allows more granualar management of resources based on uses.   
+_(e.g. user can contain a working web app like nginx to be used on top of a variety of Linux distrobution / systems)_
 
 ## Docker Architecture
 
@@ -138,7 +140,9 @@ cd /var/run
 ls -al dock*
 ```
 _Only Root or docker group can access Docker because of docker.sock permissions_
+
 **The Fix**
+
 Add our user to the docker group
 ```
 sudo usermod "user" -G docker
