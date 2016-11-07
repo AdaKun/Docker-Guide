@@ -132,7 +132,7 @@ Verfiy Docker
 sudo systemctl status docker
 ```
 Verify Docker images 
-```diff
+```ruby
 - (you should get "Cannot connect to the Docker deamon.")
 ```
 ```
