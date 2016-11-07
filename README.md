@@ -133,6 +133,10 @@ sudo systemctl status docker
 ```
 Verify Docker images
 
+```
+docker images
+```
+
 **The Problem**
 
 you should get
@@ -140,9 +144,7 @@ you should get
 ```diff
 - ("Cannot connect to the Docker deamon.")
 ```
-```
-docker images
-```
+
 Why does this happen?
 By default docker installs docker.sock under the "docker" group
 To see what we are talking about:
