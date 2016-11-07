@@ -131,8 +131,10 @@ Verfiy Docker
 ```
 sudo systemctl status docker
 ```
-Verify Docker images 
+Verify Docker images
+
 **The Problem**
+
 you should get
 
 ```diff
@@ -190,20 +192,27 @@ Find more information in Docker
 
 How much space can I use using Docker images?
 Check disk space
+
 `df -h`
+
 _(If /var/lib/docker is not mounted then the space available in your root (/) directory is what you are limited to.)_
 
 #### Where are all Docker images and containers storage located
+
 `/var/lib/docker`
+
 _must be root to access this directory_
 
 **Container location**
+
 `/var/lib/docker/container`
 
 View current containers
+
 `docker ps`
 
 View past containers
+
 `docker ps -a`
 
 Two ways to refer to a container:
@@ -212,9 +221,11 @@ Two ways to refer to a container:
 2. A Unique image name (e.g. cocky_elion)
 
 **Image location**
+
 `/var/lib/docker/image/devicemapper/imagedb/content/sha256/"image"`
 
 You can view this image running
+
 `docker images`
 
 
