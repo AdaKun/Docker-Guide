@@ -96,18 +96,12 @@ The CentOS default repo for Docker tends to be behind several builds so we are g
 
 **Lets create a repository for Docker!**
 
-Move to repo directory
-```
-cd /etc/yum.repos.d/
-```
-View repo's
-```
-ll
-```
-Create repo file
-```
-sudo vim docker.repo
-```
+Move to repo directory `cd /etc/yum.repos.d/`
+
+View repo's `ll`
+
+Create repo file `sudo vim docker.repo`
+
 Type the following in the repo file
 ```
 [dockerrepo]
@@ -117,28 +111,18 @@ enabled=1
 gpgcheck=1
 gpg=https://yum.dockerproject.org/gpg
 ```        
-Update the cache and latest updates
-```
-sudo yum -y update
-```        
-Install docker from the docker repo
-```
-sudo yum -y install docker-engine
-```
+Update the cache and latest updates `sudo yum -y update`
+
+Install docker from the docker repo `sudo yum -y install docker-engine`
+
 Enable & Start Docker
 ```
 sudo systemctl enable docker
 sudo systemctl start docker
 ```
-Verfiy Docker
-```
-sudo systemctl status docker
-```
-Verify Docker images
+Verfiy Docker `sudo systemctl status docker`
 
-```
-docker images
-```
+Verify Docker images `docker images`
 
 **The Problem**
 
@@ -161,23 +145,17 @@ ls -al dock*
 
 **The Fix**
 
-Add our user to the docker group
-```
-sudo usermod "user" -G docker
-```
+Add our user to the docker group `sudo usermod "user" -G docker`
+
 Logout & Login to inact user modification
 ```
 exit
 su "user"
 ```
-Reinsure docker is working properly
-```
-docker run hello-world
-```
-Verify latest docker version
-```
-docker --version
-```
+Reinsure docker is working properly `docker run hello-world`
+
+Verify latest docker version `docker --version`
+
 ## Creating Our First Image
 
 Goal: to pull an image and represent an instance or container from it
