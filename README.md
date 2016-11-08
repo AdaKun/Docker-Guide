@@ -17,6 +17,7 @@ My Notes for Docker, through Linux Academy
 - [First Docker Image](#creating-our-first-image)
 - [Multiple Docker Images](#working-with-multiple-images)
 - [Package a Custom Container](#packaging-a-customized-container)
+- [Container Commands with Docker](#running-container-commands-with-docker)
 
 ## Introduction to Docker
 
@@ -414,7 +415,7 @@ ll
 
 How do we get our text file, telnet, ,user and ssh to the base image?
 
-** Method 1, Creating an image by commiting changes of a container
+** Method 1, Creating an image by commiting changes of a container **
 
 We need to commit it!
 `docker commit -m "Already installed SSH and created test user" -a "maintainer" container_name maintainer/ubusshd:v1`
@@ -443,7 +444,7 @@ which sshd
 cat /etc/group | grep test
 ```
 
-** Method 2, Creating an image from a Dockerfile method
+** Method 2, Creating an image from a Dockerfile method **
 
 This file will have information of: 
 who we are
