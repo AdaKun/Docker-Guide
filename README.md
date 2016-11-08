@@ -15,6 +15,8 @@ My Notes for Docker, through Linux Academy
 - [The Docker Hub](#the-docker-hub)
 - [Docker Installation](#docker-installation)
 - [First Docker Image](#creating-our-first-image)
+- [Multiple Docker Images](#working-with-multiple-images)
+- [Package a Custom Container](#packaging-a-customized-container)
 
 ## Introduction to Docker
 
@@ -282,9 +284,209 @@ You can also restart the container with `docker restart "unique-name"`
 
 You can check if the image is running using a `docker ps`
 
+You can check more informations about the base image by running `docker inspect ubuntu:xenial`
+
 You can return to the bash promp of the container by running `docker attach "unique name"`
 
 <sub>_the disadvantage of this is exiting the container will also exit the container proccess again_</sub>
 
 ### Working With Multiple Images
 
+Exploring the different ways in using multiple images.
+
+Recall before that our container would automaticly attach itself to the bash prompt, this time we can suspend the container in the background as a daemon using the option `-d` (-d = disconnected)
+
+e.g. `docker run -i -t -d ubuntu:xenial /bin/bash`
+
+Checking any running Docker images using, `docker ps`
+
+<sub>_you will notice that the container is runnning_</sub>
+
+Running a `docker ps -a` you will also notice the container running is a completely different image from the last
+
+You can also inspect the container with a `docker inspect "unique name"`. Information is presented in JSON
+Important configurations include:
+
+* TTY connection
+* environment variable
+* command
+* image
+* gateway
+* ip
+
+<sub>_can also inspect stopped containers_</sub>
+
+<sub>_One possible issue with Docker is the difficulty in controling a static IP address_</sub>
+
+You can run a `docker stop "unique_name"` to stop a container
+
+You can use `docker search "name"` to search for all images in Docker Hub
+
+Tips:
+
+* you can run multiple instances of a container
+* you can choose to start and stop different instances
+* restarting an instance may reset configurations and apps installed unless the base image already had it.
+
+### Packagin A Customized Container
+
+Goal: The ability to carry forward changes made into a container
+
+Base image
+container based upon that image
+any changes within container does not affect base image
+changes cannot be carried forward to other containers made from base image
+changes within container are persistant within contain as long as image remains on system and can restart it.
+
+When you may want a container you configured and be able to build other containers with the same configurations
+
+two methods:
+
+1. start a container, make changes and commit the container
+2. create a dockerfile
+
+Initial steps:
+
+1. create a container from a base image
+2. make changes / install packages
+3. create a new base image
+
+Check if images are running
+
+`docker ps`
+
+Check images on system that have run before
+
+`docker ps -a`
+
+start over with new image container
+`docker run -it ubuntu:xenial /bin/bash`
+
+In container
+
+Go to root
+`cd /root`
+
+write a generic text file
+`echo "this is version 1 of our custom image" > image_ver.txt`
+
+run an update
+`apt-get update`
+
+Install telnet and SSH
+`apt-get  -y install telnet openssh-server`
+
+<sub>_This will give us a container with services, system configurations and the ability to add users and connect to the container without stopping the container_</sub>
+
+Add user
+`adduser "test"`
+
+<sub>_fill in password and full name_</sub>
+
+Check changes
+
+```
+which sshd
+which telnet
+cat /etc/group | grep test
+```
+
+Exit container
+`exit`
+
+Grab unique container name using `docker ps -a`
+
+Restart & attach to container
+
+```
+docker restart "unique_name"
+docker attach "unique_name"
+```
+
+Check for custom text file
+
+```
+cd /root
+ll
+```
+
+<sub>_You will see the text file you created there, on that note that file will not show on any other container based on the image._</sub>
+
+How do we get our text file, telnet, ,user and ssh to the base image?
+
+** Method 1, Creating an image by commiting changes of a container
+
+We need to commit it!
+`docker commit -m "Already installed SSH and created test user" -a "maintainer" container_name maintainer/ubusshd:v1`
+
+Lets break this down:
+
+| Command               | Discription                                                |
+| --------------------- |:----------------------------------------------------------:|
+| docker commit         | commit changes of a container to an image                  |
+| -m                    | messege/comment                                            |
+| -a                    | author (e.g., "John Hannibal Smith <hannibal@a-team.com>") |
+| image_name            | Unique_name of the container your trying commit            |
+| maintainer/ubusshd:v1 | [REPOSITORY[:TAG]]                                         |
+
+You can now see the image when running `docker images`
+
+Run the docker image `docker run -it maintainer/ubusshd:v1 /bin/bash`
+
+In container you should now see the same text file, telnet, sshd and user created in the previous container carried to this container
+
+```
+cd /root
+ls -al
+which telnet
+which sshd
+cat /etc/group | grep test
+```
+
+** Method 2, Creating an image from a Dockerfile method
+
+This file will have information of: 
+who we are
+what base image it is from
+and install some basic packages
+
+Create a directory `mkdir build`
+Move to directory `cd build`
+Create Dockerfile `vim Dockerfile`
+
+<sub>_the "d" in Dockerfile must be capital by default_</sub>
+
+In vim
+
+```
+# This is a custom ubuntu image with SSH already installed
+FROM ubuntu:xenial
+MAINTAINER tcox <tcox@linuxacademy.com>
+RUN apt-get update
+RUN apt-get install -y telnet openssh-server
+```
+
+<sub>_This is the bare minimum, but here you can typically start service, expose port / volumes, link containers and much more_</sub>
+<sub>_also be sure to add -y to your apt-get command, any question prompt thats not answered from a command will make docker abort the build_</sub>
+
+Write the Dockerfile `docker build -t="tcox/ubusshdonly:v2" .`
+
+<sub>_you can also redirect a dockerfile 'e.g. `docker build -t="tcox/ubusshdonly:v2" < /location/Dockerfile`_</sub>
+
+| Command              | Discription                                        |
+| -------------------- |:--------------------------------------------------:|
+| docker build         | Build an image from a Dockerfile                   |
+| -t                   | Name and optionally a tag in the 'name:tag' format |
+| .                    | current directory                                  |
+
+<sub>_Docker will not automaticlly start the service, as it manages services differently_</sub>
+
+Find the newly created image running `docker image`
+
+Run the image `docker run -it tcox/ubusshdonly:v2 /bin/bash`
+
+Check telnet and sshd like before `which telnet`, `which sshd`
+
+Done!
+
+### Running Container Commands With Docker
