@@ -167,18 +167,13 @@ Two components to a docker infastructure:
 1. An image (of anything)
 2. Containers (instance of an image run as a container)
 
-Be sure version of Docker is at least 1.1
+Be sure version of Docker is at least 1.1 `docker version`
 
-`docker version`
-
-Find more information in Docker
-
-`docker info`
+Find more information in Docker `docker info`
 
 How much space can I use using Docker images?
-Check disk space
 
-`df -h`
+Check disk space `df -h`
 
 <sub>_(If /var/lib/docker is not mounted then the space available in your root (/) directory is what you are limited to.)_</sub>
 
@@ -192,13 +187,9 @@ Check disk space
 
 `/var/lib/docker/container`
 
-View current containers
+View current containers `docker ps`
 
-`docker ps`
-
-View past containers
-
-`docker ps -a`
+View past containers `docker ps -a`
 
 Two ways to refer to a container:
 
@@ -209,9 +200,7 @@ Two ways to refer to a container:
 
 `/var/lib/docker/image/devicemapper/imagedb/content/sha256/"image"`
 
-You can view this image running
-
-`docker images`
+You can view this image running `docker images`
 
 ### Lets pull our first image
 
@@ -223,13 +212,9 @@ Through the *docker hub* we will pull the latest ubuntu image from their officia
 
 <sub>_We could use `docker pull ubuntu` but we will be more specific with the "xenial" image even when new builds are released_</sub>
 
-Check docker images
+Check docker images `docker images`
 
-`docker images`
-
-Lets run the image in a container
-
-`docker run -i -t ubuntu:xenial /bin/bash`
+Lets run the image in a container `docker run -i -t ubuntu:xenial /bin/bash`
 
 | Command             | Discription                      |
 | ------------------- |:-------------------------------: |
@@ -241,15 +226,11 @@ Lets run the image in a container
 
 This will start you in a /bin/bash prompt in the container you just created
 
-you can check the proccesses the container is running:
+you can check the proccesses the container is running: `ps aux`
 
-`ps aux`
+<sub>_you will see the ps and bin/bash proccess_</sub>
 
-you will see the ps and bin/bash proccess
-
-if you exit the container
-
-`exit`
+if you exit the container `exit`
 
 You will notice the container is no longer running.
 
@@ -330,35 +311,25 @@ Initial steps:
 2. make changes / install packages
 3. create a new base image
 
-Check if images are running
+Check if images are running `docker ps`
 
-`docker ps`
+Check images on system that have run before `docker ps -a`
 
-Check images on system that have run before
-
-`docker ps -a`
-
-start over with new image container
-`docker run -it ubuntu:xenial /bin/bash`
+start over with new image container `docker run -it ubuntu:xenial /bin/bash`
 
 In container
 
-Go to root
-`cd /root`
+Go to root `cd /root`
 
-write a generic text file
-`echo "this is version 1 of our custom image" > image_ver.txt`
+write a generic text file `echo "this is version 1 of our custom image" > image_ver.txt`
 
-run an update
-`apt-get update`
+run an update `apt-get update`
 
-Install telnet and SSH
-`apt-get  -y install telnet openssh-server`
+Install telnet and SSH `apt-get  -y install telnet openssh-server`
 
 <sub>_This will give us a container with services, system configurations and the ability to add users and connect to the container without stopping the container_</sub>
 
-Add user
-`adduser "test"`
+Add user `adduser "test"`
 
 <sub>_fill in password and full name_</sub>
 
@@ -370,8 +341,7 @@ which telnet
 cat /etc/group | grep test
 ```
 
-Exit container
-`exit`
+Exit container `exit`
 
 Grab unique container name using `docker ps -a`
 
