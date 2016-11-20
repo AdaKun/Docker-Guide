@@ -18,7 +18,7 @@ My Notes for Docker, through Linux Academy
 - [Multiple Docker Images](#working-with-multiple-images)
 - [Package a Custom Container](#packaging-a-customized-container)
 - [Container Commands with Docker](#running-container-commands-with-docker)
-
+- [Exposing Containers with Port Redirects](#exposing-our-container-with-port-redirects)
 ## Introduction to Docker
 
 #### What is Docker
@@ -440,6 +440,59 @@ Done!
 
 ### Running Container Commands With Docker
 
-** Lets find out the logs of a container while or when its running **
+Lets find out the logs of a container while or when its running
 
 Find recently run containers `docker ps -a`
+
+View logs of a particular container `docker logs "container_name"`
+
+<sub>_This tells you what has been run from the container. It also gives insight of what is currently running in the container_</sub>
+
+To execute a command on a container without attaching (e.g. `docker exec ecstatic_yonath /bin/cat /etc/profile`)
+
+| Command              | Discription              |
+| -------------------- |:------------------------:|
+| docker exec          | To "execute"             |
+| ecstatic_yonath      | Unique name of container |
+| /bin/cat             | command to run `cat`     |
+| /etc/profile         | File directory           |
+
+<sub>_you should get a readout of the /etc profile_</sub>
+
+To test this you can attach to the container `docker attach "container_name"`
+Update your Linux Distro, do an `apt-get update` / `yum update`
+Install file editor, do a `apt-get install vi` / `yum install vi`
+Edit the /etc/profile file `vim /etc/profile`
+At the bottom place a comment you would recognize `# What is the Cargo of the Docker Whale?` and save.
+Exit and restart docker container `docker restart "container_name"
+Execute docker cat command earlier
+
+<sub>_You should notice the comment you placed earlier in the file_</sub>
+
+You can also run command using docker run (e.g. `docker run ubuntu:xenial /bin/echo "Hello Conatiner")
+
+<sub>_should echo back "Hello Container"_</sub>
+
+Doing a `docker ps -a` you'll see that a specific container opened just to run the echo command.
+You can also run a `docker logs "container_name"` and see that command has run.
+
+You can also execute a comnmand as a daemon so it continues to run in that container ` docker run -d ubuntu:xenial /bin/bash -c "while true;do echo HELLO;sleep 1;done"
+
+| Command                                 | Discription                                   |
+| --------------------------------------- |:---------------------------------------------:|
+| docker run                              | Run a command in a new container              |
+| -d                                      | As a daemon (containerize command as a daemon)|
+| ubuntu:xenial                           | Docker image name                             |
+| /bin/bash -c                            | Execute a command                             |
+| "while true;do echo HELLO;sleep 1;done" | Bash Script                                   |
+
+You can check the if the script is running by running the `docker logs "container_name"
+
+<sub>_You'll notice a bunch of HELLO's are running_</sub>
+
+You can also check if its continuously running by checking the count of the number of lines `docker logs "container_name" | wc -l`
+
+<sub>_You'll notice that the number will grow everytime you type in the command_</sub>
+
+### Exposing Our Containers With Port Redirects
+
