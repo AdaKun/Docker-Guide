@@ -439,3 +439,7 @@ Check telnet and sshd like before `which telnet`, `which sshd`
 Done!
 
 ### Running Container Commands With Docker
+
+** Lets find out the logs of a container while or when its running **
+
+Find recently run containers `docker ps -a`
