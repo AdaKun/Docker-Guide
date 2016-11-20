@@ -460,11 +460,17 @@ To execute a command on a container without attaching (e.g. `docker exec ecstati
 <sub>_you should get a readout of the /etc profile_</sub>
 
 To test this you can attach to the container `docker attach "container_name"`
+
 Update your Linux Distro, do an `apt-get update` / `yum update`
+
 Install file editor, do a `apt-get install vi` / `yum install vi`
+
 Edit the /etc/profile file `vim /etc/profile`
+
 At the bottom place a comment you would recognize `# What is the Cargo of the Docker Whale?` and save.
+
 Exit and restart docker container `docker restart "container_name"
+
 Execute docker cat command earlier
 
 <sub>_You should notice the comment you placed earlier in the file_</sub>
