@@ -1,4 +1,4 @@
-# Linux Acadeny Docker Personal Guide
+# Linux Academy Docker Personal Guide
 My Notes for Docker, through Linux Academy
 
 ## Table of Contents
@@ -18,7 +18,31 @@ My Notes for Docker, through Linux Academy
 - [Multiple Docker Images](#working-with-multiple-images)
 - [Package a Custom Container](#packaging-a-customized-container)
 - [Container Commands with Docker](#running-container-commands-with-docker)
-- [Exposing Containers with Port Redirects](#exposing-our-container-with-port-redirects)
+- [Exposing Containers with Port Redirects](#exposing-our-containers-with-port-redirects)
+
+Test
+
+- [Linux Acadeny Docker Personal Guide](#linux-acadeny-docker-personal-guide)
+  * [Introduction to Docker](#introduction-to-docker)
+      - [What is Docker](#what-is-docker)
+      - [When to use docker](#when-to-use-docker)
+  * [Containers Vs. Virtual Machines](#containers-vs-virtual-machines)
+      - [Whats the difference](#whats-the-difference)
+  * [Docker Architecture](#docker-architecture)
+      - [Container architecture](#container-architecture)
+      - [Docker client & daemon communications](#docker-client---daemon-communications)
+      - [Docker Components](#docker-components)
+      - [Docker is not a new idea](#docker-is-not-a-new-idea)
+  * [The Docker Hub](#the-docker-hub)
+  * [Docker Installation](#docker-installation)
+  * [Creating Our First Image](#creating-our-first-image)
+    + [Quick overview of Dockers internal architecture](#quick-overview-of-dockers-internal-architecture)
+      - [Where are all Docker images and containers storage located](#where-are-all-docker-images-and-containers-storage-located)
+    + [Lets pull our first image](#lets-pull-our-first-image)
+    + [Working With Multiple Images](#working-with-multiple-images)
+    + [Packagin A Customized Container](#packagin-a-customized-container)
+    + [Running Container Commands With Docker](#running-container-commands-with-docker)
+    + [Exposing Our Containers With Port Redirects](#exposing-our-containers-with-port-redirects)
 
 ## Introduction to Docker
 
