@@ -24,8 +24,8 @@ My Notes for Docker, through Linux Academy
     + [Pulling our first image](#pulling-our-first-image)
   * [Working With Multiple Images](#working-with-multiple-images)
   * [Packaging A Customized Container](#packaging-a-customized-container)
-    + [Two methods:](#two-methods)
     + [Initial steps:](#initial-steps)
+    + [Two methods:](#two-methods)
       - [Method 1, Creating an image by committing changes of a container](#method-1-creating-an-image-by-committing-changes-of-a-container)
       - [Method 2, Creating an image from a Dockerfile](#method-2-creating-an-image-from-a-dockerfile)
   * [Running Container Commands With Docker](#running-container-commands-with-docker)
@@ -317,11 +317,6 @@ changes within a container are persistent within, as long as the image remains o
 
 When you may want a container you configured and be able to build other containers with the same configurations
 
-### Two methods
-
-1. start a container, make changes and commit the container
-2. create a Dockerfile
-
 ### Initial steps
 
 1. create a container from a base image
@@ -380,6 +375,11 @@ ll
 
 How do we get our text file, telnet, user and ssh to the base image?
 
+### Two methods
+
+1. start a container, make changes and commit the container
+2. create a Dockerfile
+
 #### Method 1 Creating an image by committing changes of a container
 
 We need to commit it!
@@ -392,7 +392,7 @@ Command break-down:
 | docker commit         | commit changes of a container to an image                  |
 | -m                    | message/comment                                            |
 | -a                    | author (e.g., "John Hannibal Smith <hannibal@a-team.com>") |
-| image_name            | Unique_name of the container you're trying commit            |
+| image_name            | Unique_name of the container you're trying commit          |
 | maintainer/ubusshd:v1 | [REPOSITORY[:TAG]]                                         |
 
 You can now see the image when running `docker images`
