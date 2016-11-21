@@ -1,7 +1,7 @@
 # Linux Academy: Dockerfile, Builds, and Network Configurations
 My Notes for Docker, through Linux Academy
 
-# Coming Soon...
+# Data Pending...
 
 ## Table of Contents
 
