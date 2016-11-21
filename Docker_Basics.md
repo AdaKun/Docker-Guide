@@ -1,7 +1,7 @@
 # Linux Academy: The Basics of Docker
 My Notes for Docker, through Linux Academy
 
-## 1. [Docker Basics](Docker_Basics.md)
+## 1. [Docker Basics](Docker-Basics.md)
 ## 2. [Dockerfile, Builds & Noetwork Configurations](Dockerfile_Builds_Networks.md)
 ## 3. [Docker Commands & Structures](Docker_Commands_Structures.md)
 ## 4. [Docker Integration and Use Cases](Docker_Integration.md)
