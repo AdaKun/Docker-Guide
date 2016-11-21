@@ -30,7 +30,7 @@ My Notes for Docker, through Linux Academy
       - [Method 2, Creating an image from a Dockerfile](#method-2-creating-an-image-from-a-dockerfile)
   * [Running Container Commands With Docker](#running-container-commands-with-docker)
       - [Find logs of a container while or when it is running](#find-logs-of-a-container-while-or-when-it-is-running)
-      - [execute a command on a container without attaching](#execute-a-command-on-a-container-without-attaching)
+      - [Execute a command on a container without attaching](#execute-a-command-on-a-container-without-attaching)
       - [Run commands using docker run](#run-commands-using-docker-run)
       - [You can also execute a command as a daemon so it continues to run in that container](#you-can-also-execute-a-command-as-a-daemon-so-it-continues-to-run-in-that-container)
   * [Exposing Our Containers With Port Redirects](#exposing-our-containers-with-port-redirects)
@@ -465,7 +465,7 @@ View logs of a particular container `docker logs "container_name"`
 
 <sub>_This tells you what has been run from the container. It also gives insight of what is currently running in the container_</sub>
 
-#### execute a command on a container without attaching 
+#### Execute a command on a container without attaching 
 
 (e.g. `docker exec ecstatic_yonath /bin/cat /etc/profile`)
 
