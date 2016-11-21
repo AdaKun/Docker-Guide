@@ -19,6 +19,7 @@ My Notes for Docker, through Linux Academy
 - [Package a Custom Container](#packaging-a-customized-container)
 - [Container Commands with Docker](#running-container-commands-with-docker)
 - [Exposing Containers with Port Redirects](#exposing-our-container-with-port-redirects)
+
 ## Introduction to Docker
 
 #### What is Docker
@@ -88,6 +89,7 @@ Other Applications Include:
        + Unlimited public repositories
     
 ## Docker Installation
+
 What we are using
 ```
 CentOS 7
