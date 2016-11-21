@@ -1,55 +1,46 @@
-# Linux Academy Docker Personal Guide
+# Linux Academy: The Basics of Docker
 My Notes for Docker, through Linux Academy
 
 ## Table of Contents
-- [Introduction to Docker](#introduction-to-docker)
+- [Linux Academy: The Basics of Docker](#linux-academy--the-basics-of-docker)
+  * [Introduction to Docker](#introduction-to-docker)
     + [What is Docker](#what-is-docker)
     + [When to use docker](#when-to-use-docker)
-- [Containers Vs. Virtual Machines](#containers-vs-virtual-machines)
+  * [Containers Vs. Virtual Machines](#containers-vs-virtual-machines)
     + [Whats the difference](#whats-the-difference)
-- [Docker Architecture](#docker-architecture)
+  * [Docker Architecture](#docker-architecture)
     + [Container architecture](#container-architecture)
-    + [Docker client & daemon communications](#docker-client---daemon-communications)
+    + [Docker client & daemon communications](#docker-client-and-daemon-communications)
     + [Docker Components](#docker-components)
     + [Docker is not a new idea](#docker-is-not-a-new-idea)
-- [The Docker Hub](#the-docker-hub)
-- [Docker Installation](#docker-installation)
-- [First Docker Image](#creating-our-first-image)
-- [Multiple Docker Images](#working-with-multiple-images)
-- [Package a Custom Container](#packaging-a-customized-container)
-- [Container Commands with Docker](#running-container-commands-with-docker)
-- [Exposing Containers with Port Redirects](#exposing-our-containers-with-port-redirects)
-
-Test
-
-- [Linux Acadeny Docker Personal Guide](#linux-acadeny-docker-personal-guide)
-  * [Introduction to Docker](#introduction-to-docker)
-      - [What is Docker](#what-is-docker)
-      - [When to use docker](#when-to-use-docker)
-  * [Containers Vs. Virtual Machines](#containers-vs-virtual-machines)
-      - [Whats the difference](#whats-the-difference)
-  * [Docker Architecture](#docker-architecture)
-      - [Container architecture](#container-architecture)
-      - [Docker client & daemon communications](#docker-client---daemon-communications)
-      - [Docker Components](#docker-components)
-      - [Docker is not a new idea](#docker-is-not-a-new-idea)
   * [The Docker Hub](#the-docker-hub)
   * [Docker Installation](#docker-installation)
+    + [Creating the Docker Repository](#creating-the-docker-repository)
+    + [The Permissions Problem](#the-permissions-problem)
+    + [The Permissions Fix](#the-permissions-fix)
   * [Creating Our First Image](#creating-our-first-image)
     + [Quick overview of Dockers internal architecture](#quick-overview-of-dockers-internal-architecture)
-      - [Where are all Docker images and containers storage located](#where-are-all-docker-images-and-containers-storage-located)
-    + [Lets pull our first image](#lets-pull-our-first-image)
-    + [Working With Multiple Images](#working-with-multiple-images)
-    + [Packagin A Customized Container](#packagin-a-customized-container)
-    + [Running Container Commands With Docker](#running-container-commands-with-docker)
-    + [Exposing Our Containers With Port Redirects](#exposing-our-containers-with-port-redirects)
+      - [Docker image and container directory](#docker-image-and-container-directory)
+    + [Pulling our first image](#pulling-our-first-image)
+  * [Working With Multiple Images](#working-with-multiple-images)
+  * [Packaging A Customized Container](#packaging-a-customized-container)
+    + [Two methods:](#two-methods)
+    + [Initial steps:](#initial-steps)
+      - [Method 1, Creating an image by committing changes of a container](#method-1-creating-an-image-by-committing-changes-of-a-container)
+      - [Method 2, Creating an image from a Dockerfile](#method-2-creating-an-image-from-a-dockerfile)
+  * [Running Container Commands With Docker](#running-container-commands-with-docker)
+      - [Find logs of a container while or when it is running](#find-logs-of-a-container-while-or-when-it-is-running)
+      - [execute a command on a container without attaching](#execute-a-command-on-a-container-without-attaching)
+      - [Run commands using docker run](#run-commands-using-docker-run)
+      - [You can also execute a command as a daemon so it continues to run in that container](#you-can-also-execute-a-command-as-a-daemon-so-it-continues-to-run-in-that-container)
+  * [Exposing Our Containers With Port Redirects](#exposing-our-containers-with-port-redirects)
 
 ## Introduction to Docker
 
-#### What is Docker
-Tool or set of tools that packages applications and it dependencies on a virtual container to any Linux systems or distrobutions
+### What is Docker
+Tool or set of tools that packages applications and it dependencies on a virtual container to any Linux systems or distributions
 
-#### When to use docker
+### When to use docker
  - Configure Simplification
  - Developer Productivity
  - Server Management 
@@ -65,33 +56,33 @@ VM's - Allows the user to build operating systems within their current system (s
 
 Containers - An isolated set of packages, libraries, applications. 
 
-#### Whats the difference
+### Whats the difference
 VM - Creates a full operating system stack, uses more system resources regardless of applications used
 
-Container - Shares the operating system plateform (can choose not to) and allows more granualar management of resources based on uses.   
-<sub>_(e.g. user can contain a working web app like nginx to be used on top of a variety of Linux distrobution / systems)_</sub>
+Container - Shares the operating system platform (can choose not to) and allows more granular management of resources based on use.   
+<sub>_(e.g. user can contain a working web app like nginx to be used on top of a variety of Linux distribution / systems)_</sub>
 
 ## Docker Architecture
 
-#### Container architecture
+### Container architecture
    - Is a client-server application
    - Run as a [Same System] Docker client + Docker daemon
    - Or a [Remote System] Docker client > Remote Docker daemon
    - Runs on top of a single Linux instance
-   - Docker engine = incapsulating proccess
+   - Docker engine = encapsulating process
    - Removes a whole layer from the VM hypervisor process
       + saves resources and space
     
-#### Docker client & daemon communications
+### Docker client and daemon communications
    - Sockets
-   - RESTful API (Representational State Tranfer - Stateless transfer over HTTP of a webpage containing an XML file)
+   - RESTful API (Representational State Transfer - Stateless transfer over HTTP of a web page containing an XML file)
     
-#### Docker Components
+### Docker Components
    - Daemon
    - Client
    - Docker.io Registry
     
-#### Docker is not a new idea
+### Docker is not a new idea
 Docker has captured the right buzz
 Other Applications Include:
    - FreeBSD - Jails
@@ -102,7 +93,7 @@ Other Applications Include:
 ## The Docker Hub
    - Public registry/repository
    - Maintained by Docker Inc.
-   - Conatains images to build containers
+   - Contains images to build containers
        + pull images from cli to build containers
    - provides image information
        + Dockerfile
@@ -120,7 +111,7 @@ CentOS 7
 ```
 The CentOS default repo for Docker tends to be behind several builds so we are going to pull the latest docker from thier official repo.
 
-**Lets create a repository for Docker!**
+### Creating the Docker Repository
 
 Move to repo directory `cd /etc/yum.repos.d/`
 
@@ -150,12 +141,12 @@ Verfiy Docker `sudo systemctl status docker`
 
 Verify Docker images `docker images`
 
-**The Problem**
+### The Permissions Problem
 
 you should get
 
 ```diff
-- ("Cannot connect to the Docker deamon.")
+- ("Cannot connect to the Docker daemon.")
 ```
 
 Why does this happen?
@@ -169,11 +160,11 @@ ls -al dock*
 ```
 <sub>_Only Root or docker group can access Docker because of docker.sock permissions_</sub>
 
-**The Fix**
+### The Permissions Fix
 
 Add our user to the docker group `sudo usermod "user" -G docker`
 
-Logout & Login to inact user modification
+Logout & Login to enact user modification
 ```
 exit
 su "user"
@@ -188,7 +179,7 @@ Goal: to pull an image and represent an instance or container from it
 
 ### Quick overview of Dockers internal architecture
 
-Two components to a docker infastructure:
+Two components to a docker infrastructure:
 
 1. An image (of anything)
 2. Containers (instance of an image run as a container)
@@ -203,7 +194,7 @@ Check disk space `df -h`
 
 <sub>_(If /var/lib/docker is not mounted then the space available in your root (/) directory is what you are limited to.)_</sub>
 
-#### Where are all Docker images and containers storage located
+#### Docker image and container directory
 
 `/var/lib/docker`
 
@@ -228,7 +219,7 @@ Two ways to refer to a container:
 
 You can view this image running `docker images`
 
-### Lets pull our first image
+### Pulling our first image
 
 Through the *docker hub* we will pull the latest ubuntu image from their official repository using the Docker pull command
 
@@ -240,9 +231,9 @@ Through the *docker hub* we will pull the latest ubuntu image from their officia
 
 Check docker images `docker images`
 
-Lets run the image in a container `docker run -i -t ubuntu:xenial /bin/bash`
+Run the image in a container `docker run -i -t ubuntu:xenial /bin/bash`
 
-| Command             | Discription                      |
+| Command             | Description                      |
 | ------------------- |:-------------------------------: |
 | docker run          | Run a command in a new container |
 | -i                  | run in interactive mode          |
@@ -252,7 +243,7 @@ Lets run the image in a container `docker run -i -t ubuntu:xenial /bin/bash`
 
 This will start you in a /bin/bash prompt in the container you just created
 
-you can check the proccesses the container is running: `ps aux`
+you can check the processes the container is running: `ps aux`
 
 <sub>_you will see the ps and bin/bash proccess_</sub>
 
@@ -270,17 +261,17 @@ You can also restart the container with `docker restart "unique-name"`
 
 You can check if the image is running using a `docker ps`
 
-You can check more informations about the base image by running `docker inspect ubuntu:xenial`
+You can check more information about the base image by running `docker inspect ubuntu:xenial`
 
-You can return to the bash promp of the container by running `docker attach "unique name"`
+You can return to the bash prompt of the container by running `docker attach "unique name"`
 
-<sub>_the disadvantage of this is exiting the container will also exit the container proccess again_</sub>
+<sub>_the disadvantage of this is exiting the container will also exit the container process again_</sub>
 
-### Working With Multiple Images
+## Working With Multiple Images
 
 Exploring the different ways in using multiple images.
 
-Recall before that our container would automaticly attach itself to the bash prompt, this time we can suspend the container in the background as a daemon using the option `-d` (-d = disconnected)
+Recall before that our container would automatically attach itself to the bash prompt, this time we can suspend the container in the background as a daemon using the option `-d` (-d = disconnected)
 
 e.g. `docker run -i -t -d ubuntu:xenial /bin/bash`
 
@@ -302,7 +293,7 @@ Important configurations include:
 
 <sub>_can also inspect stopped containers_</sub>
 
-<sub>_One possible issue with Docker is the difficulty in controling a static IP address_</sub>
+<sub>_One possible issue with Docker is the difficulty in controlling a static IP address_</sub>
 
 You can run a `docker stop "unique_name"` to stop a container
 
@@ -314,24 +305,24 @@ Tips:
 * you can choose to start and stop different instances
 * restarting an instance may reset configurations and apps installed unless the base image already had it.
 
-### Packagin A Customized Container
+## Packaging A Customized Container
 
 Goal: The ability to carry forward changes made into a container
 
 Base image
 container based upon that image
-any changes within container does not affect base image
-changes cannot be carried forward to other containers made from base image
-changes within container are persistant within contain as long as image remains on system and can restart it.
+any changes within containers do not affect base image
+changes cannot be carried forward to other containers made from the base image
+changes within a container are persistent within, as long as the image remains on the system and can restart it.
 
 When you may want a container you configured and be able to build other containers with the same configurations
 
-two methods:
+### Two methods
 
 1. start a container, make changes and commit the container
-2. create a dockerfile
+2. create a Dockerfile
 
-Initial steps:
+### Initial steps
 
 1. create a container from a base image
 2. make changes / install packages
@@ -387,28 +378,28 @@ ll
 
 <sub>_You will see the text file you created there, on that note that file will not show on any other container based on the image._</sub>
 
-How do we get our text file, telnet, ,user and ssh to the base image?
+How do we get our text file, telnet, user and ssh to the base image?
 
-** Method 1, Creating an image by commiting changes of a container **
+#### Method 1 Creating an image by committing changes of a container
 
 We need to commit it!
 `docker commit -m "Already installed SSH and created test user" -a "maintainer" container_name maintainer/ubusshd:v1`
 
-Lets break this down:
+Command break-down:
 
-| Command               | Discription                                                |
+| Command               | Description                                                |
 | --------------------- |:----------------------------------------------------------:|
 | docker commit         | commit changes of a container to an image                  |
-| -m                    | messege/comment                                            |
+| -m                    | message/comment                                            |
 | -a                    | author (e.g., "John Hannibal Smith <hannibal@a-team.com>") |
-| image_name            | Unique_name of the container your trying commit            |
+| image_name            | Unique_name of the container you're trying commit            |
 | maintainer/ubusshd:v1 | [REPOSITORY[:TAG]]                                         |
 
 You can now see the image when running `docker images`
 
 Run the docker image `docker run -it maintainer/ubusshd:v1 /bin/bash`
 
-In container you should now see the same text file, telnet, sshd and user created in the previous container carried to this container
+In the container you should now see the same text file, telnet, sshd and user created in the previous container carried to this container
 
 ```
 cd /root
@@ -418,7 +409,7 @@ which sshd
 cat /etc/group | grep test
 ```
 
-** Method 2, Creating an image from a Dockerfile method **
+#### Method 2 Creating an image from a Dockerfile
 
 This file will have information of: 
 who we are
@@ -442,19 +433,19 @@ RUN apt-get install -y telnet openssh-server
 ```
 
 <sub>_This is the bare minimum, but here you can typically start service, expose port / volumes, link containers and much more_</sub>
-<sub>_also be sure to add -y to your apt-get command, any question prompt thats not answered from a command will make docker abort the build_</sub>
+<sub>_also be sure to add -y to your apt-get command, any question prompt that's not answered from a command will make docker abort the build_</sub>
 
 Write the Dockerfile `docker build -t="tcox/ubusshdonly:v2" .`
 
-<sub>_you can also redirect a dockerfile 'e.g. `docker build -t="tcox/ubusshdonly:v2" < /location/Dockerfile`_</sub>
+<sub>_you can also redirect a dockerfile 'e.g. `docker build -t="tcox/ubusshdonly:v2" "left-redirect-arrow" /location/Dockerfile_</sub>
 
-| Command              | Discription                                        |
+| Command              | Description                                        |
 | -------------------- |:--------------------------------------------------:|
 | docker build         | Build an image from a Dockerfile                   |
 | -t                   | Name and optionally a tag in the 'name:tag' format |
 | .                    | current directory                                  |
 
-<sub>_Docker will not automaticlly start the service, as it manages services differently_</sub>
+<sub>_Docker will not automatically start the service, as it manages services differently_</sub>
 
 Find the newly created image running `docker image`
 
@@ -464,9 +455,9 @@ Check telnet and sshd like before `which telnet`, `which sshd`
 
 Done!
 
-### Running Container Commands With Docker
+## Running Container Commands With Docker
 
-Lets find out the logs of a container while or when its running
+#### Find logs of a container while or when it is running
 
 Find recently run containers `docker ps -a`
 
@@ -474,7 +465,9 @@ View logs of a particular container `docker logs "container_name"`
 
 <sub>_This tells you what has been run from the container. It also gives insight of what is currently running in the container_</sub>
 
-To execute a command on a container without attaching (e.g. `docker exec ecstatic_yonath /bin/cat /etc/profile`)
+#### execute a command on a container without attaching 
+
+(e.g. `docker exec ecstatic_yonath /bin/cat /etc/profile`)
 
 | Command              | Discription              |
 | -------------------- |:------------------------:|
@@ -495,22 +488,26 @@ Edit the /etc/profile file `vim /etc/profile`
 
 At the bottom place a comment you would recognize `# What is the Cargo of the Docker Whale?` and save.
 
-Exit and restart docker container `docker restart "container_name"
+Exit and restart docker container `docker restart "container_name"`
 
 Execute docker cat command earlier
 
 <sub>_You should notice the comment you placed earlier in the file_</sub>
 
-You can also run command using docker run (e.g. `docker run ubuntu:xenial /bin/echo "Hello Conatiner")
+#### Run commands using docker run 
+
+(e.g. `docker run ubuntu:xenial /bin/echo "Hello Container"`)
 
 <sub>_should echo back "Hello Container"_</sub>
 
 Doing a `docker ps -a` you'll see that a specific container opened just to run the echo command.
 You can also run a `docker logs "container_name"` and see that command has run.
 
-You can also execute a comnmand as a daemon so it continues to run in that container ` docker run -d ubuntu:xenial /bin/bash -c "while true;do echo HELLO;sleep 1;done"
+#### You can also execute a command as a daemon so it continues to run in that container 
 
-| Command                                 | Discription                                   |
+(e.g. ` docker run -d ubuntu:xenial /bin/bash -c "while true;do echo HELLO;sleep 1;done"`)
+
+| Command                                 | Description                                   |
 | --------------------------------------- |:---------------------------------------------:|
 | docker run                              | Run a command in a new container              |
 | -d                                      | As a daemon (containerize command as a daemon)|
@@ -518,13 +515,13 @@ You can also execute a comnmand as a daemon so it continues to run in that conta
 | /bin/bash -c                            | Execute a command                             |
 | "while true;do echo HELLO;sleep 1;done" | Bash Script                                   |
 
-You can check the if the script is running by running the `docker logs "container_name"
+You can check the if the script is running by running the `docker logs "container_name"`
 
 <sub>_You'll notice a bunch of HELLO's are running_</sub>
 
-You can also check if its continuously running by checking the count of the number of lines `docker logs "container_name" | wc -l`
+You can also check if it is continuously running by checking the count of the number of lines `docker logs "container_name" | wc -l`
 
-<sub>_You'll notice that the number will grow everytime you type in the command_</sub>
+<sub>_You'll notice that the number will grow every time you type and run the command_</sub>
 
-### Exposing Our Containers With Port Redirects
+## Exposing Our Containers With Port Redirects
 
