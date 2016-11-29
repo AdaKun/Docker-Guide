@@ -531,3 +531,39 @@ You can also check if it is continuously running by checking the count of the nu
 
 ## Exposing Our Containers With Port Redirects
 
+Getting containers to listen on specific ports
+
+In docker hub repo, using nginx as an example, we will pull the latest nginx repo `docker pull nginx:latest`.
+
+start and instance of a container running nginx `docker run -d nginx:latest`
+
+check if container running `docker -ps`
+
+check for IP address using inspect `docker inspect "container_name"`
+
+<sub>_You should get a JSON readout, look for something like "IPAddress 172.17.0.2"_</sub>
+
+Using elinks we will check if container is running nginx on the IP Address you found `elinks http://172.17.0.2`
+
+<sub>_if you do not have elinks, install it `sudo yum install elinks`_</sub>
+
+running elinks command you should get a nginx webpage
+
+This does not apply to localhost running a `elinks http://localhost/`, should give you a connection refused
+
+<sub>_this is because the host has no way to connect to the container from host other than the IP the container is using_</sub>
+
+This is where a port redirect becomes useful.
+
+check container `docker ps` and stop it `docker stop "container_name"`
+
+Now we run the same container with port redirect `docker run -d -p 80:80 nginx:latest`
+
+Lets break down this command:
+| Command                                 | Description                                                                             |
+| --------------------------------------- |:-------------------------------------[-------------------------------------------------:|
+| docker run                              | Run a command in a new container                                                        |
+| -d                                      | As a daemon (containerize command as a daemon)                                          |
+| -p                                      | A container᾿s port or a range of ports to the host                                      |
+| 80:80                                   | fromats include: ip:hostPort:containerPort or ip::containerPort or hostPort:containerPort or containerPort                                                                                                                       |
+| nginx:latest                            | Nginx docker image, Latest build                                                        |
