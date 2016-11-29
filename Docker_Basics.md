@@ -568,3 +568,21 @@ Lets break down this command:
 | -p                   | A container᾿s port or a range of ports to the host                                                         |
 | 80:80                | Fromats: ip:hostPort:containerPort / ip::containerPort / [our example] hostPort:containerPort / containerPort            |
 | nginx:latest         | Nginx docker image, Latest build                                                                           |
+
+<sub>_in our example we are connecting the host port 80 to the container port 80_</sub>
+
+Now check port status using `docker ps`
+
+<sub>_you should now see (0.0.0.0:80>80/tcp, 443/tcp) where as 80 is redirected locally and 443 is for the contnainer_</sub>
+
+You should now be able to see the nginx webpage when running both `elinks http://172.17.0.2` and `elinks http://localhost/`
+
+Your not limited to one port you can use other ports e.g. `docker run -d -p 8080:80 nginx:latest`
+
+<sub>_running a `docker ps` you should now see  "443/tcp, 0.0.0.0:8080>80/tcp" the local port of 8080 to container port of 80_</sub>
+
+You should now be able to see the nginx webpage when running both `elinks http://172.17.0.2` and `elinks http://localhost:8080`
+
+<sub>_the local host is redirecting traffic over 8080 through the docker daemon to corresponding container_</sub>
+
+**DONE**
