@@ -1,4 +1,6 @@
-# Docker Guide based on Linux Academy Content
+# Docker Guide 
+based on Linux Academy Content
+
 As awesome as the courses are at Linux Academy, I learn much more when I create my own reference and study guide. So here I will continuously translate and archive what I've learned throughout the proccess of learning Docker. 
 
 Listed here is the order in which you will learn docker roughly based on the Linux Academy courses
