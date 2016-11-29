@@ -560,10 +560,10 @@ check container `docker ps` and stop it `docker stop "container_name"`
 Now we run the same container with port redirect `docker run -d -p 80:80 nginx:latest`
 
 Lets break down this command:
-| Command                                 | Description                                                                             |
-| --------------------------------------- |:-------------------------------------[-------------------------------------------------:|
-| docker run                              | Run a command in a new container                                                        |
-| -d                                      | As a daemon (containerize command as a daemon)                                          |
-| -p                                      | A container᾿s port or a range of ports to the host                                      |
-| 80:80                                   | fromats include: ip:hostPort:containerPort or ip::containerPort or hostPort:containerPort or containerPort                                                                                                                       |
-| nginx:latest                            | Nginx docker image, Latest build                                                        |
+| Command              | Description                                                                                                |
+| -------------------- |:-------------------------------------[--------------------------------------------------------------------:|
+| docker run           | Run a command in a new container                                                                           |
+| -d                   | As a daemon (containerize command as a daemon)                                                             |
+| -p                   | A container᾿s port or a range of ports to the host                                                         |
+| 80:80                | fromats include: ip:hostPort:containerPort or ip::containerPort or hostPort:containerPort or containerPort |
+| nginx:latest         | Nginx docker image, Latest build                                                                           |
