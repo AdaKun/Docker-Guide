@@ -560,6 +560,7 @@ check container `docker ps` and stop it `docker stop "container_name"`
 Now we run the same container with port redirect `docker run -d -p 80:80 nginx:latest`
 
 Lets break down this command:
+
 | Command              | Description                                                                                                |
 | -------------------- |:-------------------------------------[--------------------------------------------------------------------:|
 | docker run           | Run a command in a new container                                                                           |
