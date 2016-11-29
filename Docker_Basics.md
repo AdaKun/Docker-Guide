@@ -566,5 +566,5 @@ Lets break down this command:
 | docker run           | Run a command in a new container                                                                           |
 | -d                   | As a daemon (containerize command as a daemon)                                                             |
 | -p                   | A container᾿s port or a range of ports to the host                                                         |
-| 80:80                | Fromats: ip:hostPort:containerPort / ip::containerPort / hostPort:containerPort / containerPort            |
+| 80:80                | Fromats: ip:hostPort:containerPort / ip::containerPort / [our example] hostPort:containerPort / containerPort            |
 | nginx:latest         | Nginx docker image, Latest build                                                                           |
