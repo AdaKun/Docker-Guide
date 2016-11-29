@@ -562,7 +562,7 @@ Now we run the same container with port redirect `docker run -d -p 80:80 nginx:l
 Lets break down this command:
 
 | Command              | Description                                                                                                |
-| -------------------- |:-------------------------------------[--------------------------------------------------------------------:|
+| -------------------- |:----------------------------------------------------------------------------------------------------------:|
 | docker run           | Run a command in a new container                                                                           |
 | -d                   | As a daemon (containerize command as a daemon)                                                             |
 | -p                   | A container᾿s port or a range of ports to the host                                                         |
