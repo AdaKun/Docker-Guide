@@ -1,5 +1,5 @@
 # Docker Guide 
-This material is based on Linux Academy Content
+This material is based on **Linux Academy** Content
 
 As awesome as the courses are at Linux Academy, I learn much more when I create my own reference and study guide. So here I will continuously translate and archive what I've learned throughout the proccess of learning Docker. 
 
