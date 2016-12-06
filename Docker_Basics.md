@@ -190,6 +190,52 @@ Reinsure docker is working properly `docker run hello-world`
 
 Verify latest docker version `docker --version`
 
+### To install Docker on an Amazon Linux instance
+
+Launch an instance with the Amazon Linux AMI. For more information, see Launching an Instance in the Amazon EC2 User Guide for Linux Instances.
+
+Connect to your instance. For more information, see Connect to Your Linux Instance in the Amazon EC2 User Guide for Linux Instances.
+
+Update the installed packages and package cache on your instance.
+```
+[ec2-user ~]$ sudo yum update -y
+```
+Install Docker.
+```
+[ec2-user ~]$ sudo yum install -y docker
+```
+Start the Docker service.
+```
+[ec2-user ~]$ sudo service docker start
+Starting cgconfig service:                                 [  OK  ]
+Starting docker:	                                   [  OK  ]
+```
+Add the ec2-user to the docker group so you can execute Docker commands without using sudo.
+```
+[ec2-user ~]$ sudo usermod -a -G docker ec2-user
+```
+Log out and log back in again to pick up the new docker group permissions.
+
+Verify that the ec2-user can run Docker commands without sudo.
+```
+[ec2-user ~]$ docker info
+Containers: 2
+Images: 24
+Storage Driver: devicemapper
+ Pool Name: docker-202:1-263460-pool
+ Pool Blocksize: 65.54 kB
+ Data file: /var/lib/docker/devicemapper/devicemapper/data
+ Metadata file: /var/lib/docker/devicemapper/devicemapper/metadata
+ Data Space Used: 702.3 MB
+ Data Space Total: 107.4 GB
+ Metadata Space Used: 1.864 MB
+ Metadata Space Total: 2.147 GB
+ Library Version: 1.02.89-RHEL6 (2014-09-01)
+Execution Driver: native-0.2
+Kernel Version: 3.14.27-25.47.amzn1.x86_64
+Operating System: Amazon Linux AMI 2014.09
+```
+
 ## Creating Our First Image
 
 Goal: to pull an image and represent an instance or container from it
