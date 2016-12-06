@@ -111,12 +111,8 @@ Other Applications Include:
     
 ## Docker Installation
 
-What we are using
-
-** CentOS 7 **
-
+**To install Docker on CentOS/Red Hat Linux Instance**
 ![alt text](https://raw.githubusercontent.com/docker-library/docs/c4df0024e2cad985326dc38f6b6ce39abeab59c5/centos/logo.png "CentOS")
-
 
 ### Prerequisites
 
