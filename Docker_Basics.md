@@ -116,7 +116,17 @@ What we are using
 CentOS 7
 ```
 
-### Creating the Docker Repository (OPTIONAL)
+### Prerequisites
+
+Docker requires a 64-bit OS and version 3.10 or higher of the Linux kernel.
+
+To check your current kernel version, open a terminal and use uname -r to display your kernel version:
+```
+$ uname -r
+3.10.0-229.el7.x86_64
+```
+
+### Creating the Docker Repository
 
 The CentOS default repo for Docker tends to be behind several builds so we are going to pull the latest docker from thier official repo.
 
