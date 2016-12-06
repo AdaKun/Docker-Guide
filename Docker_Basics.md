@@ -190,7 +190,7 @@ Reinsure docker is working properly `docker run hello-world`
 
 Verify latest docker version `docker --version`
 
-### To install Docker on an Amazon Linux instance ![alt text](https://electricimp.com/docs/attachments/images/partnerlogos/aws.png "AWS")
+### To install Docker on an Amazon Linux instance ![alt text](https://upload.wikimedia.org/wikipedia/commons/thumb/1/1d/AmazonWebservices_Logo.svg/320px-AmazonWebservices_Logo.svg.png "AWS")
 
 Launch an instance with the Amazon Linux AMI. For more information, see Launching an Instance in the Amazon EC2 User Guide for Linux Instances.
 
