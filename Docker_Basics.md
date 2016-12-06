@@ -115,9 +115,10 @@ What we are using
 ```
 CentOS 7
 ```
-The CentOS default repo for Docker tends to be behind several builds so we are going to pull the latest docker from thier official repo.
 
 ### Creating the Docker Repository (OPTIONAL)
+
+The CentOS default repo for Docker tends to be behind several builds so we are going to pull the latest docker from thier official repo.
 
 Move to repo directory `cd /etc/yum.repos.d/`
 
