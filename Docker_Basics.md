@@ -236,6 +236,9 @@ Execution Driver: native-0.2
 Kernel Version: 3.14.27-25.47.amzn1.x86_64
 Operating System: Amazon Linux AMI 2014.09
 ```
+### To install Docker on an Google Cloud instance
+
+
 
 ## Creating Our First Image
 
