@@ -109,9 +109,9 @@ Other Applications Include:
        + 1 single private repository
        + Unlimited public repositories
     
-## Docker Installation
+# Docker Installation
 
-### To install Docker on CentOS/Red Hat Linux Instance
+## To install Docker on CentOS/Red Hat Linux Instance
 
 ![alt text](https://lh6.googleusercontent.com/-B35_v-hKoIc/AAAAAAAAAAI/AAAAAAAAAAc/HhO8giWojxQ/photo.jpg "CentOS")
 
@@ -189,7 +189,7 @@ Reinsure docker is working properly `docker run hello-world`
 
 Verify latest docker version `docker --version`
 
-### To install Docker on an Amazon Linux instance 
+## To install Docker on an Amazon Linux instance 
 
 ![alt text](https://upload.wikimedia.org/wikipedia/commons/thumb/1/1d/AmazonWebservices_Logo.svg/320px-AmazonWebservices_Logo.svg.png "AWS")
 
@@ -236,7 +236,7 @@ Execution Driver: native-0.2
 Kernel Version: 3.14.27-25.47.amzn1.x86_64
 Operating System: Amazon Linux AMI 2014.09
 ```
-### To install Docker on an Google Container Engine
+## To install Docker on an Google Container Engine
 
 ![alt text](https://codelabs.developers.google.com/codelabs/cloud-compute-kubernetes/img/7c1b38ea0e376135.png "GCloud")
 
