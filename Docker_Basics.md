@@ -236,6 +236,10 @@ Execution Driver: native-0.2
 Kernel Version: 3.14.27-25.47.amzn1.x86_64
 Operating System: Amazon Linux AMI 2014.09
 ```
+
+## To install Docker on an Amazon Elastic Compute Cloud
+![alt text](http://blog.storagemadeeasy.com/wp-content/uploads/2015/03/Amazon-EC2-image.png "EC2")
+
 ## To install Docker on an Google Container Engine
 
 ![alt text](https://codelabs.developers.google.com/codelabs/cloud-compute-kubernetes/img/7c1b38ea0e376135.png "GCloud")
