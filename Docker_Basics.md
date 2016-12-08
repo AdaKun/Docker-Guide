@@ -236,9 +236,9 @@ Execution Driver: native-0.2
 Kernel Version: 3.14.27-25.47.amzn1.x86_64
 Operating System: Amazon Linux AMI 2014.09
 ```
-### To install Docker on an Google Cloud instance
+### To install Docker on an Google Container Engine
 
-
+![alt text](https://codelabs.developers.google.com/codelabs/cloud-compute-kubernetes/img/7c1b38ea0e376135.png "GCloud")
 
 ## Creating Our First Image
 
